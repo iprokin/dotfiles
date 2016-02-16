@@ -1,0 +1,61 @@
+[general]
+ui = ttyui
+accounts = Gmail
+pythonfile = ~/.offlineimap/offlineimap.py
+
+[Account Gmail]
+localrepository = Gmail-Local
+remoterepository = Gmail-Remote
+postsynchook = notmuch new
+
+[Repository Gmail-Local]
+type = Maildir
+localfolders = ~/Mail/Gmail
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'starred': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository Gmail-Remote]
+auth_mechanisms = LOGIN
+type = Gmail
+remoteuser = isprokin@gmail.com
+remotepasseval = get_pass()
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'starred',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                            }.get(folder, folder)
+
+folderfilter = lambda folder: folder not in [
+                                             #'[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             'PhD',
+                                             'CdF',
+                                             'Hugues',
+                                             'INRIA',
+                                             'Comp-neuro',
+                                             'pris@52.ru',
+                                             'science',
+                                             'nature',
+                                             'NN',
+                                             'NN/VK',
+                                             ]
+
+expunge = no
+maxconnections = 3
+ssl = yes
+holdconnectionopen = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"

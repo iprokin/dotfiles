@@ -1,0 +1,88 @@
+set sleep_time = 0 # Speed up folders switch
+set delete           # don't ask, just do
+unset confirmappend  # don't ask, just do!
+
+set mbox_type=Maildir
+# IMAP: offlineimap
+set folder = "~/Mail"
+source ~/.mutt/mailboxes
+set spoolfile = "+Gmail/INBOX"
+set record = "+Gmail/sent"
+set postponed = "+Gmail/drafts"
+unset move               # gmail does put messages to Sent itself
+macro index D "<save-message>+Gmail/trash<enter>" "move message to the trash"
+
+source "pass email/mutt/isprokin@gmail.com |"
+set my_guser = isprokin@gmail.com
+# set my_name = "Ilya Prokin"
+# set imap_user=isprokin@gmail.com
+# set imap_pass=$my_gpass
+# set folder=imaps://isprokin@imap.gmail.com/
+# set spoolfile=+INBOX
+# mailboxes =+INBOX
+# #set record = +Sent
+# unset record
+# set postponed = +[Gmail]/Drafts
+# # Allow Mutt to open new imap connection automatically.
+# unset imap_passive
+# # Keep IMAP connection alive by polling intermittently (time in seconds).
+# set imap_keepalive = 300
+# # How often to check for new mail (time in seconds).
+# set mail_check = 120
+
+
+
+set editor=`echo \$EDITOR`
+set send_charset="utf-8"
+set realname = 'Ilya Prokin'
+set from = $my_guser
+set sig_dashes
+set askcc
+set use_from = yes
+set smtp_url="smtps://$my_guser:$my_gpass@smtp.gmail.com:465/"
+set ssl_force_tls = yes
+
+
+# Store message headers and messages locally to speed things up.
+set header_cache = ~/.cache/mutt
+set message_cachedir = ~/.cache/mutt
+
+bind pager <up> previous-line #scroll inside the message rather than the index
+bind pager <down> next-line
+
+bind pager j next-line
+bind pager k previous-line
+bind index N search-opposite
+bind pager N search-opposite
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager gg top
+bind pager G bottom
+bind attach,index gg first-entry
+bind attach,index G last-entry
+set signature="~/.mutt/signature"
+
+set sort=reverse-threads
+set sort_aux=last-date-received
+set uncollapse_jump
+
+set mailcap_path    = ~/.mutt/mailcap
+auto_view text/html
+macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && $BROWSER ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
+
+## Colors
+#source ~/.mutt/colors
+source ~/.mutt/mutt-colors-solarized-light-16.muttrc
+#source ~/.mutt/mutt-colors-solarized-light-256.muttrc
+
+## Abook
+set query_command= "abook --mutt-query '%s'"
+macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+bind editor        <Tab> complete-query
+
+## NotMuch
+source ~/.mutt/notmuch
+
+## Sync email
+macro index SS "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
+macro index Ss "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"

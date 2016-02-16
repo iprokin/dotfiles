@@ -1,0 +1,15 @@
+/*/
+@import url("oceans16-bright.css");
+/**/
+
+/**/
+.CodeMirror pre {font-family: 'Envy Code R', Terminus, monospace, 'DejaVu Sans Mono'; font-size: 10pt;}
+
+.container { width:100% !important; }
+
+.prompt { margin-left:-11ex; font-size: 6px; }
+.prompt.input_prompt { color: rgba(0,0,0,0.5); }
+
+#notebook { font-size: 10pt; } 
+#menubar-container { font-size: 10pt; } 
+/**/

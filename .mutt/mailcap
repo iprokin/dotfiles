@@ -1,0 +1,7 @@
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+image/*; feh_browser.sh %s; edit=gimp %s;
+# test=RunningX;
+application/pdf; zathura %s; test=RunningX;
+#application/pdf; pdftohtml -q -stdout %s | w3m -T text/html; copiousoutput
+#application/msword; libreoffice %s; test=RunningX;
+application/msword; antiword %s | more;
