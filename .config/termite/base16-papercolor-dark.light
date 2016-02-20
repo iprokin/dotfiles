@@ -1,0 +1,37 @@
+[options]
+font = Inconsolata 13
+
+[colors]
+# Base16 PaperColor-Dark
+# Scheme: Nguyen Nguyen (http://github.com/NLKNguyen)
+
+foreground      = #4d4d4c
+foreground_bold = #4d4d4c
+cursor          = #4d4d4c
+background      = #f3f3f3
+
+# 16 color space
+color0  = #262626
+color1  = #af87af
+color2  = #dfaf5f
+color3  = #00afaf
+color4  = #df875f
+color5  = #afdf00
+color6  = #5fafdf
+color7  = #d0d0d0
+color8  = #808080
+color9  = #af87af
+color10 = #dfaf5f
+color11 = #00afaf
+color12 = #df875f
+color13 = #afdf00
+color14 = #5fafdf
+color15 = #f3f3f3
+
+# 256 color space
+color16 = #ff5faf
+color17 = #00af5f
+color18 = #262626
+color19 = #4d4d4c
+color20 = #949494
+color21 = #f3f3f3
