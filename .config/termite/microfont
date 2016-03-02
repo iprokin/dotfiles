@@ -1,12 +1,5 @@
 [options]
-#font = Anonymous Pro 10
-#font = Droid Sans Mono 10
-#font = DejaVu Sans Mono 10
-#font = Inconsolata-g 10
-#font = Inconsolata 12
-#font = Terminus 12
-font = Envy Code R 11
-#font = Monospace 10
+font = Terminus 9
 
 [colors]
 #foreground = #dcdccc

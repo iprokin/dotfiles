@@ -1,9 +1,9 @@
 [options]
 #font = Anonymous Pro 10
-font = Droid Sans Mono 11
+#font = Droid Sans Mono 11
 #font = DejaVu Sans Mono 10
 #font = Inconsolata-g 10
-#font = Inconsolata 12
+font = Inconsolata 12
 #font = Terminus 12
 #font = Envy Code R Regular 12
 #font = Monospace 10

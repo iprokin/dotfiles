@@ -4,10 +4,11 @@ font = Inconsolata 13
 [colors]
 # Base16 PaperColor-Dark
 # Scheme: Nguyen Nguyen (http://github.com/NLKNguyen)
+# Mod by Ilya Prokin
 
 foreground      = #4d4d4c
 foreground_bold = #4d4d4c
-cursor          = #4d4d4c
+cursor          = #7d4d4c
 background      = #f3f3f3
 
 # 16 color space
@@ -34,4 +35,4 @@ color17 = #00af5f
 color18 = #262626
 color19 = #4d4d4c
 color20 = #949494
-color21 = #f3f3f3
+color21 = #e9e9e9
