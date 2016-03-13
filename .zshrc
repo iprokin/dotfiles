@@ -1,7 +1,7 @@
 #bindkey -v # vi mode
 
-export PATH="/home/ilya/sh:/usr/local/bin:$PATH"
-export PYTHONPATH="/home/ilya/Sync/MyPy"
+export PATH="$HOME/sh:/usr/local/bin:$PATH"
+export PYTHONPATH="$HOME/Sync/MyPy"
 export VISUAL=vim
 export EDITOR=vim
 export BROWSER=qutebrowser
@@ -14,7 +14,7 @@ HISTSIZE=5000
 SAVEHIST=5000
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/ilya/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 
 setopt autocd
 
@@ -91,7 +91,7 @@ alias lsg="ls | grep"
 alias lag="ls -al | grep"
 alias cdp="cd ~/Sync/PhD"
 alias cdnm="cd ~/Sync/PhD/newestest_modular_model1"
-alias cdsp="cd /home/ilya/GitHub/suppositoire/scripts"
+#alias cdsp="cd $HOME/GitHub/suppositoire/scripts"
 alias G="grep"
 alias HG="history | grep"
 
@@ -101,6 +101,14 @@ function sskillf () { pidgrep $1 | xargs sudo kill $2 }
 function locate() { ag $@ /etc/filesdatabase.txt }
 function orphans() { sudo pacman -Rns $(pacman -Qdtq) }
 
+functuion togglegithome() {
+  GDIR="$HOME/.git_home"
+  if [ -d "$GDIR" ]; then
+      mv $GDIR $HOME/.git
+  else
+      mv $HOME/.git $GDIR
+  fi
+}
 
 . $HOME/sh/sshing.sh
 

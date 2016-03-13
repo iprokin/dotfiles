@@ -5,4 +5,4 @@ font = Envy Code R 11
 
 foreground = #D1EBFF
 foreground_bold = #D1EBFF
-background = rgba(13, 14, 41, 0.4)
+background = rgba(13, 14, 41, 0.3)

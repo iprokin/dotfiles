@@ -1,3 +1,4 @@
+
 " set mouse=a
 set nocompatible
 let mapleader=" "
@@ -35,6 +36,10 @@ function TextMode()
     "noremap k gk
     "noremap j gj
     set spell spelllang=en_us
+    let terminal_emulator=system("ps -o comm= -p \"$(($(ps -o ppid= -p \"$(($(ps -o sid= -p \"$$\")))\")))\"")
+    if terminal_emulator=="lilyterm\n"
+       hi Normal ctermbg=none
+    endif
 endfunction
 
 function Set_PaperColorTheme()
@@ -45,6 +50,7 @@ function Set_PaperColorTheme()
     hi SpellLocal cterm=underline
 endfunction
 
+
 if $VIM_LIGHT
     call Set_PaperColorTheme()
 else
@@ -52,6 +58,7 @@ else
     set background=light
     colorscheme gruvbox
 endif
+
 " special characters
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set list
@@ -92,7 +99,8 @@ au BufRead /tmp/mutt-* call Mutt()
 function Mutt()
     set tw=72
     set spell spelllang=en_us,ru
-    call Set_PaperColorTheme()
+    set background=light
+    " call Set_PaperColorTheme()
 endfunction
 
 " tagbar
@@ -104,12 +112,14 @@ set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 " gvim stuff
 set guifont=Envy\ Code\ R\ 11
 function! ToggleGUICruft()
-  if &guioptions=='i'
-    exec('set guioptions=imTrL')
-  else
-    exec('set guioptions=i')
-  endif
+    if &guioptions=='i'
+        exec('set guioptions=imTrL')
+    else
+        exec('set guioptions=i')
+    endif
 endfunction
 map <F11> <Esc>:call ToggleGUICruft()<cr>
 " by default, hide gui menus
 set guioptions=i
+
+
