@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Feh-ImageMagick
+GenericName=Image viewer
+GenericName[en_US]=Image viewer
+Comment=Fast Imlib2-based Image Viewer
+Exec=/home/ilya/sh/feh_browser.sh %f --magick-timeout
+Terminal=false
+Type=Application
+Icon=/usr/share/feh/images/feh.png
+Categories=Graphics;2DGraphics;Viewer;
+MimeType=image/svg;

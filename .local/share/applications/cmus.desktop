@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=cmus
+GenericName=Music Player
+Comment=Listen to music
+Categories=AudioVideo;Audio;Player;
+Exec=termite -t 'C* Music Player' -c ~/.config/termite/cmus -e 'abduco -A cmus cmus'
+#Exec=lilyterm -s -u ~/.config/lilyterm/cmus.conf -T "C* Music Player" -e "abduco -A cmus cmus"
