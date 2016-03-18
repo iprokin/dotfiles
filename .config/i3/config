@@ -202,10 +202,10 @@ bindsym $mod+Escape mode "$mode_system"
 
 #bindsym Mod1+space exec --no-startup-id ~/sh/layout_info.sh
 
-bindsym "XF86MonBrightnessDown" exec --no-startup-id ~/sh/xbright.py scr -10
-bindsym "XF86MonBrightnessUp" exec --no-startup-id ~/sh/xbright.py scr +10
-bindsym "XF86KbdBrightnessDown" exec --no-startup-id ~/sh/xbright.py kbd -10
-bindsym "XF86KbdBrightnessUp" exec --no-startup-id ~/sh/xbright.py kbd +10
+#bindsym "XF86MonBrightnessDown" exec --no-startup-id ~/sh/xbright.py scr -10
+#bindsym "XF86MonBrightnessUp" exec --no-startup-id ~/sh/xbright.py scr +10
+#bindsym "XF86KbdBrightnessDown" exec --no-startup-id ~/sh/xbright.py kbd -10
+#bindsym "XF86KbdBrightnessUp" exec --no-startup-id ~/sh/xbright.py kbd +10
 bindsym $mod+"XF86Eject" exec ~/sh/scrshot.sh
 bindsym "XF86AudioRaiseVolume" exec --no-startup-id amixer set Master 5%+
 bindsym "XF86AudioLowerVolume" exec --no-startup-id amixer set Master 5%-
