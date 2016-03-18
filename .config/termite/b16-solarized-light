@@ -10,8 +10,8 @@ font = Inconsolata 13
 foreground      = #586e75
 foreground_bold = #586e75
 cursor          = #586e75
-#background      = #fdf6e3
-background = rgba(253, 246, 227, 0.95) 
+background      = #fdf6e3
+#background = rgba(253, 246, 227, 0.95) 
 
 # 16 color space
 color0  = #002b36

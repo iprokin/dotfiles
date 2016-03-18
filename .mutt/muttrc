@@ -1,7 +1,55 @@
+# General settings
+set header_cache = ~/.cache/mutt # Store message headers and messages locally to speed things up.
+set message_cachedir = ~/.cache/mutt
+set mailcap_path    = ~/.mutt/mailcap
+set signature="~/.mutt/signature"
+set sig_on_top # puts signature above quoted text
+
 set sleep_time = 0 # Speed up folders switch
 set delete           # don't ask, just do
 unset confirmappend  # don't ask, just do!
+alternative_order text/plain text/html
+auto_view text/html
 
+set forward_format="Fwd: %s"
+set index_format="%2C %Z %[%b %e %H:%M] %-16.16F (%4.4c) %s"
+set sort=reverse-threads
+set sort_aux=last-date-received
+set uncollapse_jump
+
+# General send
+set editor=`echo \$EDITOR`
+set send_charset="utf-8"
+set sig_dashes
+set askcc
+set use_from = yes
+
+# key bindings
+bind pager <up> previous-line #scroll inside the message rather than the index
+bind pager <down> next-line
+bind pager j next-line
+bind pager k previous-line
+bind index N search-opposite
+bind pager N search-opposite
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager gg top
+bind pager G bottom
+bind attach,index gg first-entry
+bind attach,index G last-entry
+
+bind index R group-reply # reply to all recipients
+bind pager R group-reply # reply to all recipients
+bind compose p postpone-message
+bind index p recall-message
+
+# Sync email
+macro index SS "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
+macro index Ss "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
+# view in browser macro
+macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && $BROWSER ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
+
+# Account
 set mbox_type=Maildir
 # IMAP: offlineimap
 set folder = "~/Mail"
@@ -32,48 +80,23 @@ set my_guser = isprokin@gmail.com
 
 
 
-set editor=`echo \$EDITOR`
-set send_charset="utf-8"
+# Gmail send
 set realname = 'Ilya Prokin'
 set from = $my_guser
-set sig_dashes
-set askcc
-set use_from = yes
 set smtp_url="smtps://$my_guser:$my_gpass@smtp.gmail.com:465/"
 set ssl_force_tls = yes
 
 
-# Store message headers and messages locally to speed things up.
-set header_cache = ~/.cache/mutt
-set message_cachedir = ~/.cache/mutt
-
-bind pager <up> previous-line #scroll inside the message rather than the index
-bind pager <down> next-line
-
-bind pager j next-line
-bind pager k previous-line
-bind index N search-opposite
-bind pager N search-opposite
-bind attach,index,pager \CD next-page
-bind attach,index,pager \CU previous-page
-bind pager gg top
-bind pager G bottom
-bind attach,index gg first-entry
-bind attach,index G last-entry
-set signature="~/.mutt/signature"
-
-set sort=reverse-threads
-set sort_aux=last-date-received
-set uncollapse_jump
-
-set mailcap_path    = ~/.mutt/mailcap
-auto_view text/html
-macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && $BROWSER ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
 
 ## Colors
 #source ~/.mutt/colors
-source ~/.mutt/mutt-colors-solarized-light-16.muttrc
+#source ~/.mutt/mutt-colors-solarized-light-16.muttrc
+source ~/.mutt/b16-papercolor-light-256.muttrc
+#source ~/.mutt/mine-4-sol-color
+#source /home/ilya/Downloads/base16-builder/output/mutt/base16-solarized.light.256.muttrc
 #source ~/.mutt/mutt-colors-solarized-light-256.muttrc
+#source ~/.mutt/mutt.zenburn.256
+#source ~/.mutt/colors.lightr
 
 ## Abook
 set query_command= "abook --mutt-query '%s'"
@@ -83,6 +106,8 @@ bind editor        <Tab> complete-query
 ## NotMuch
 source ~/.mutt/notmuch
 
-## Sync email
-macro index SS "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
-macro index Ss "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
+# quick navigation
+macro index gs "<change-folder> =Gmail/sent<enter>"   "go to sent"
+macro index gi "<change-folder> =Gmail/INBOX<enter>"  "go to INBOX"
+macro index gd "<change-folder> =Gmail/drafts<enter>" "go to drafts"
+macro index gt "<change-folder> =Gmail/trash<enter>"  "go to trash"

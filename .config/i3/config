@@ -44,7 +44,8 @@ bindsym $mod+Shift+Return exec sh -c 'CONF=~/.config/termite && FILE=$(ls $CONF 
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+p exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+p exec --no-startup-id j4-dmenu-desktop
 bindsym $mod+Shift+p exec dmenu_run -fn 'Droid Sans-10' 
 bindsym $mod+Control+p exec rofi -show run 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -55,6 +56,7 @@ bindsym $mod+Control+p exec rofi -show run
 # jump to window
 bindsym $mod+Tab exec rofi -show window 
 bindsym Mod1+Tab workspace back_and_forth 
+bindsym $mod+u [urgent=latest] focus
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -103,7 +105,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -163,16 +165,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
+        bindsym h resize shrink width 2 px or 2 ppt
+        bindsym j resize grow height 2 px or 2 ppt
+        bindsym k resize shrink height 2 px or 2 ppt
+        bindsym l resize grow width 2 px or 2 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Left resize shrink width 2 px or 2 ppt
+        bindsym Down resize grow height 2 px or 2 ppt
+        bindsym Up resize shrink height 2 px or 2 ppt
+        bindsym Right resize grow width 2 px or 2 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -182,7 +184,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-set $Locker xautolock -locknow && sleep 1
+#set $Locker xautolock -locknow && sleep 1
+set $Locker ~/sh/i3lock-blur.sh
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) poweroff 
 mode "$mode_system" {
@@ -209,7 +212,7 @@ bindsym $mod+Escape mode "$mode_system"
 bindsym $mod+"XF86Eject" exec ~/sh/scrshot.sh
 bindsym "XF86AudioRaiseVolume" exec --no-startup-id amixer set Master 5%+
 bindsym "XF86AudioLowerVolume" exec --no-startup-id amixer set Master 5%-
-bindsym "XF86AudioMute" exec --no-startup-id amixer sset Master toggle 
+bindsym "XF86AudioMute" exec --no-startup-id amixer set Master toggle
 # bindsym "XF86AudioRaiseVolume" exec --no-startup-id pactl set-sink-volume 0 +5%
 # bindsym "XF86AudioLowerVolume" exec --no-startup-id pactl set-sink-volume 0 -5%
 # bindsym "XF86AudioMute" exec --no-startup-id pactl set-sink-mute 0 toggle
@@ -229,20 +232,25 @@ bindsym $mod+Mod1+"XF86WWW" exec --no-startup-id sh -c 'notify-send "$(sudo psta
 bindsym $mod+Mod1+Control+"XF86WWW" exec --no-startup-id sh -c 'notify-send "$(sudo pstate-frequency -S -p 3)"' 
 
 bindsym $mod+Control+z exec zim --plugin quicknote --input clipboard 
-bindsym $mod+backslash exec st -e ranger
+bindsym $mod+backslash exec termite -e ranger
+
+# vim's hjkl everywhere
+bindsym Mod3+h exec --no-startup-id xdotool getwindowfocus windowactivate key Left
+bindsym Mod3+j exec --no-startup-id xdotool getwindowfocus windowactivate key Down
+bindsym Mod3+k exec --no-startup-id xdotool getwindowfocus windowactivate key Up
+bindsym Mod3+l exec --no-startup-id xdotool getwindowfocus windowactivate key Right
 
 bindsym $mod+grave border toggle
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-#  output            LVDS1
-  tray_output       LVDS1 
+  tray_output       LVDS1
 #    status_command    i3status
   status_command    python ~/.config/i3/status.py 
   position          top
 #    mode              hide
   workspace_buttons yes
-    
+
   font pango:DejaVu Sans 6.5
   colors {
     statusline #AAAAAA
@@ -252,13 +260,11 @@ bar {
   }
 }
 
-client.unfocused #444444 #444444 #cccccc #444444
-client.focused_inactive #444444 #444444 #FFFFFF #000000
-client.focused #000000 #1080a0 #FFFFFF #000000
+# class                 border  backgr. text    indicator
+client.unfocused        #444444 #444444 #cccccc #444444
+client.focused_inactive #444444 #445474 #FFFFFF #000000
+client.focused          #000000 #1080a0 #FFFFFF #000000
 
-new_window pixel 2
-#for_window [class="^.*"] border pixel 2
-for_window [class="^[kK]eepassx$"] floating enable
 for_window [title="^ImageMagick: "] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -270,13 +276,22 @@ assign [class="^chromium$"] 4
 assign [title="C* Music Player"] 9
 workspace 2 output LVDS1
 
+new_window pixel 2
+# for_window [class="^.*"] border pixel 2
+
+# gaps
+# smart_gaps on
+# smart_borders on
+
+# autostart
 exec --no-startup-id xautolock -detectsleep -time 15 -locker "~/sh/locker.sh"
 exec --no-startup-id nm-applet
 exec --no-startup-id clipit
 exec --no-startup-id cbatticon
 #exec --no-startup-id pcmanfm -d
 exec --no-startup-id dunst
-exec --no-startup-id compton -b --backend glx --vsync opengl -f -t 0 -l 0 -r 3 -D7 -m 0.95 
+#exec --no-startup-id compton -b --backend glx --vsync opengl -f -t 0 -l 0 -r 3 -D7 -m 0.95 
+exec --no-startup-id compton -b
 exec_always --no-startup-id ~/.fehbg
 
 # mac 9,2 specific startup

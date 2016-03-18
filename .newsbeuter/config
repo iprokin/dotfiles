@@ -1,6 +1,9 @@
 browser w3m
 pager internal
-html-renderer w3m
+player mpv
+#html-renderer w3m
+html-renderer internal
+text-width 72
 
 # Vim like keybindings for newsbeuter
 bind-key j next
@@ -26,8 +29,8 @@ bind-key K prev article
 
 color background   default   default
 color listnormal   default   default
-color listfocus    white     yellow
-color info         default   white
+color listfocus    black     yellow
+color info         black     white
 color article      default   default
 
 # highlights
