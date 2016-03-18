@@ -223,10 +223,10 @@ bindsym $mod+F8 exec --no-startup-id ~/sh/cmus_now_playing.sh
 bindsym "XF86AudioNext" exec --no-startup-id cmus-remote -n
 bindsym "XF86AudioPrev" exec --no-startup-id cmus-remote -r 
 
-bindsym "XF86LaunchB" exec --no-startup-id sh -c 'notify-send "$(pstate-frequency -G -r)"' 
-bindsym $mod+"XF86LaunchB" exec --no-startup-id sh -c 'notify-send "$(sudo pstate-frequency -S -p 1)"' 
-bindsym $mod+Mod1+"XF86LaunchB" exec --no-startup-id sh -c 'notify-send "$(sudo pstate-frequency -S -p 2)"' 
-bindsym $mod+Mod1+Control+"XF86LaunchB" exec --no-startup-id sh -c 'notify-send "$(sudo pstate-frequency -S -p 3)"' 
+bindsym "XF86WWW" exec --no-startup-id sh -c 'notify-send "$(pstate-frequency -G -r)"' 
+bindsym $mod+"XF86WWW" exec --no-startup-id sh -c 'notify-send "$(sudo pstate-frequency -S -p 1)"' 
+bindsym $mod+Mod1+"XF86WWW" exec --no-startup-id sh -c 'notify-send "$(sudo pstate-frequency -S -p 2)"' 
+bindsym $mod+Mod1+Control+"XF86WWW" exec --no-startup-id sh -c 'notify-send "$(sudo pstate-frequency -S -p 3)"' 
 
 bindsym $mod+Control+z exec zim --plugin quicknote --input clipboard 
 bindsym $mod+backslash exec st -e ranger
