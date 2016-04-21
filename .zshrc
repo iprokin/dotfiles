@@ -31,6 +31,7 @@ antigen theme bira
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle tarruda/zsh-autosuggestions
 antigen bundle git
+unalias gm
 
 bindkey -v
 
@@ -82,6 +83,7 @@ bindkey '^r' ranger-cd
 # aliases and functions
 
 alias tmux="TERM=tmux-256color tmux $@"
+alias hat="highlight --out-format=ansi $@"
 
 function svim() { st -e vim $@ & }
 function chrme() { chromium --app=http://$1/notebooks/$2 & }
@@ -91,6 +93,7 @@ alias lsg="ls | grep"
 alias lag="ls -al | grep"
 alias cdp="cd ~/Sync/PhD"
 alias cdnm="cd ~/Sync/PhD/newestest_modular_model1"
+alias cdt="cd ~/Sync/PhD/Documents_PhD/phd_thesis_markdown"
 #alias cdsp="cd $HOME/GitHub/suppositoire/scripts"
 alias G="grep"
 alias HG="history | grep"

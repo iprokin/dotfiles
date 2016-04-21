@@ -1,7 +1,6 @@
 [options]
-scrollback_lines=50000
-font = Envy Code R 11
-#font = Inconsolata 13
+#font = Envy Code R 12
+font = Inconsolata 13
 #font = Cousine Regular 11
 
 [colors]
@@ -11,8 +10,8 @@ font = Envy Code R 11
 foreground      = #586e75
 foreground_bold = #586e75
 cursor          = #586e75
-#background      = #fdf6e3
-background = rgba(253, 246, 227, 0.8)
+#background = rgba(255, 250, 250, 0.2)
+background = rgba(253, 246, 227, 0.6)
 
 # 16 color space
 color0  = #002b36

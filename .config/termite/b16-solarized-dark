@@ -1,18 +1,15 @@
 [options]
-scrollback_lines=50000
 font = Envy Code R 11
-#font = Inconsolata 13
-#font = Cousine Regular 11
 
 [colors]
 # Base16 Solarized
 # Scheme: Ethan Schoonover (http://ethanschoonover.com/solarized)
 
-foreground      = #586e75
-foreground_bold = #586e75
-cursor          = #586e75
-#background      = #fdf6e3
-background = rgba(253, 246, 227, 0.8)
+foreground      = #93a1a1
+foreground_bold = #93a1a1
+cursor          = #93a1a1
+#background      = #002b36
+background = rgba(0, 43, 54, 0.9)
 
 # 16 color space
 color0  = #002b36

@@ -170,6 +170,11 @@ mode "resize" {
         bindsym k resize shrink height 2 px or 2 ppt
         bindsym l resize grow width 2 px or 2 ppt
 
+        bindsym Shift+h resize shrink width 10 px or 10 ppt
+        bindsym Shift+j resize grow height 10 px or 10 ppt
+        bindsym Shift+k resize shrink height 10 px or 10 ppt
+        bindsym Shift+l resize grow width 10 px or 10 ppt
+
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 2 px or 2 ppt
         bindsym Down resize grow height 2 px or 2 ppt
@@ -185,7 +190,7 @@ bindsym $mod+r mode "resize"
 
 
 #set $Locker xautolock -locknow && sleep 1
-set $Locker ~/sh/i3lock-blur.sh
+set $Locker /usr/local/bin/i3lock-blur
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) poweroff 
 mode "$mode_system" {
@@ -234,11 +239,12 @@ bindsym $mod+Mod1+Control+"XF86LaunchB" exec --no-startup-id sh -c 'notify-send 
 bindsym $mod+Control+z exec zim --plugin quicknote --input clipboard 
 bindsym $mod+backslash exec termite -e ranger
 
+bindsym Mod3+v exec --no-startup-id xdotool getwindowfocus key --window %1 click 2
 # vim's hjkl everywhere
-bindsym Mod3+h exec --no-startup-id xdotool getwindowfocus windowactivate key Left
-bindsym Mod3+j exec --no-startup-id xdotool getwindowfocus windowactivate key Down
-bindsym Mod3+k exec --no-startup-id xdotool getwindowfocus windowactivate key Up
-bindsym Mod3+l exec --no-startup-id xdotool getwindowfocus windowactivate key Right
+bindsym Mod3+h exec --no-startup-id xdotool getwindowfocus key --window %1 Left
+bindsym Mod3+j exec --no-startup-id xdotool getwindowfocus key --window %1 Down
+bindsym Mod3+k exec --no-startup-id xdotool getwindowfocus key --window %1 Up
+bindsym Mod3+l exec --no-startup-id xdotool getwindowfocus key --window %1 Right
 
 bindsym $mod+grave border toggle
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -269,12 +275,15 @@ for_window [title="^ImageMagick: "] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [title="Preferences$"] floating enable
+for_window [class="^Xboard$"] floating enable
+#for_window [class="^q[tT]ox$"] floating enable
 for_window [class="^chromium$"] floating disable
 assign [class="^Firefox$"] 2
 assign [class="^qutebrowser$"] 2
 assign [class="^chromium$"] 4
 assign [title="C* Music Player"] 9
 workspace 2 output LVDS1
+workspace 9 output LVDS1
 
 new_window pixel 2
 # for_window [class="^.*"] border pixel 2
@@ -284,7 +293,7 @@ new_window pixel 2
 # smart_borders on
 
 # autostart
-exec --no-startup-id xautolock -detectsleep -time 15 -locker "~/sh/locker.sh"
+# exec --no-startup-id xautolock -detectsleep -time 15 -locker "~/sh/locker.sh"
 exec --no-startup-id nm-applet
 exec --no-startup-id clipit
 exec --no-startup-id cbatticon

@@ -58,7 +58,9 @@ set spoolfile = "+Gmail/INBOX"
 set record = "+Gmail/sent"
 set postponed = "+Gmail/drafts"
 unset move               # gmail does put messages to Sent itself
-macro index D "<save-message>+Gmail/trash<enter>" "move message to the trash"
+unset record             # Gmail will save the emails
+macro index d "<save-message>+Gmail/trash<enter>" "move message to the trash"
+macro pager d "<save-message>+Gmail/trash<enter>" "move message to the trash"
 
 source "pass email/mutt/isprokin@gmail.com |"
 set my_guser = isprokin@gmail.com
@@ -107,7 +109,8 @@ bind editor        <Tab> complete-query
 source ~/.mutt/notmuch
 
 # quick navigation
-macro index gs "<change-folder> =Gmail/sent<enter>"   "go to sent"
-macro index gi "<change-folder> =Gmail/INBOX<enter>"  "go to INBOX"
-macro index gd "<change-folder> =Gmail/drafts<enter>" "go to drafts"
-macro index gt "<change-folder> =Gmail/trash<enter>"  "go to trash"
+macro index gs "<change-folder> =Gmail/sent<enter>"     "go to sent"
+macro index gi "<change-folder> =Gmail/INBOX<enter>"    "go to INBOX"
+macro index gd "<change-folder> =Gmail/drafts<enter>"   "go to drafts"
+macro index gt "<change-folder> =Gmail/trash<enter>"    "go to trash"
+macro index gf "<change-folder> =Gmail/flagged<enter>"  "go to flagged"

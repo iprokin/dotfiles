@@ -29,6 +29,14 @@ let g:gruvbox_bold=1
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_light='hard'
 
+function! CopyMatches(reg)
+  let hits = []
+  %s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/ge
+  let reg = empty(a:reg) ? '+' : a:reg
+  execute 'let @'.reg.' = join(hits, "\n") . "\n"'
+endfunction
+command! -register CopyMatches call CopyMatches(<q-reg>)
+
 function TextMode()
     set nocursorline
     set colorcolumn=80
@@ -37,9 +45,10 @@ function TextMode()
     "noremap j gj
     set spell spelllang=en_us
     let terminal_emulator=system("ps -o comm= -p \"$(($(ps -o ppid= -p \"$(($(ps -o sid= -p \"$$\")))\")))\"")
-    if terminal_emulator=="lilyterm\n"
-       hi Normal ctermbg=none
-    endif
+    hi Normal ctermbg=none
+    "if terminal_emulator=="lilyterm\n"
+    "   hi Normal ctermbg=none
+    "endif
 endfunction
 
 function Set_PaperColorTheme()
