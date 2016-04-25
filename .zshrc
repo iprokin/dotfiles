@@ -9,7 +9,7 @@ export TERM=xterm-256color
 . ~/sh/lesscolors.sh
 
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
+HISTFILE=~/.zsh_history
 HISTSIZE=5000
 SAVEHIST=5000
 # End of lines configured by zsh-newuser-install

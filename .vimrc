@@ -39,8 +39,8 @@ command! -register CopyMatches call CopyMatches(<q-reg>)
 
 function TextMode()
     set nocursorline
-    set colorcolumn=80
-    set tw=79
+    set colorcolumn=73
+    set tw=72
     "noremap k gk
     "noremap j gj
     set spell spelllang=en_us
