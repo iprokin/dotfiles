@@ -1,0 +1,15 @@
+[$Version]
+update_info=okular.upd:sep_settings
+
+[General]
+UseKTTSD=false
+
+[Main View]
+ShowLeftPanel=false
+SplitterSizes=115,1075
+
+[Nav Panel]
+CurrentPageOnly=true
+
+[Reviews]
+AnnotationTools=<tool type="note-linked" id="1"><engine hoverIcon="tool-note" type="PickPoint" color="#ffff00"><annotation icon="Note" type="Text" color="#ffff00"/></engine><shortcut>1</shortcut></tool>,<tool type="note-inline" id="2"><engine hoverIcon="tool-note-inline" block="true" type="PickPoint" color="#ffff00"><annotation type="FreeText" color="#ffff00"/></engine><shortcut>2</shortcut></tool>,<tool type="ink" id="3"><engine type="SmoothLine" color="#00ff00"><annotation width="2" type="Ink" color="#00ff00"/></engine><shortcut>3</shortcut></tool>,<tool type="highlight" id="4"><engine type="TextSelector" color="#ffff00"><annotation type="Highlight" color="#ffff00"/></engine><shortcut>4</shortcut></tool>,<tool type="highlight" id="5"><engine type="TextSelector" color="#80d1ff"><annotation type="Highlight" color="#80d1ff"/></engine><shortcut>5</shortcut></tool>,<tool type="highlight" id="6"><engine type="TextSelector" color="#fbaaff"><annotation type="Highlight" color="#fbaaff"/></engine><shortcut>6</shortcut></tool>,<tool type="highlight" id="7"><engine type="TextSelector" color="#c4ffae"><annotation type="Highlight" color="#c4ffae"/></engine><shortcut>7</shortcut></tool>,<tool type="highlight" id="8"><engine type="TextSelector" color="#a28bff"><annotation type="Highlight" color="#a28bff"/></engine><shortcut>8</shortcut></tool>,<tool type="straight-line" id="9"><engine points="2" type="PolyLine" color="#ffe000"><annotation width="1" type="Line" color="#ffe000"/></engine><shortcut>9</shortcut></tool>,<tool type="polygon" id="10"><engine points="-1" type="PolyLine" color="#007eee"><annotation width="1" type="Line" color="#007eee"/></engine></tool>,<tool type="ellipse" id="11"><engine block="true" type="PickPoint" color="#00ffff"><annotation width="5" type="GeomCircle" color="#00ffff"/></engine></tool>
