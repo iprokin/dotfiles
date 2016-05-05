@@ -4,7 +4,7 @@ import os
 
 def get_pass(storeinfile='/tmp/offlineimap_ip_gm.tmp'):
     if not os.path.isfile(storeinfile):
-        call('pass email/offlineimap/isprokin@gmail.com > {}'.format(storeinfile), shell=True)
+        call('pass email/offlineimap/isprokin@gmail.com > {} && chmod 600 {}'.format(storeinfile), shell=True)
     #return check_output('pass email/offlineimap/isprokin@gmail.com', shell=True).strip('\n')
     return check_output('cat {}'.format(storeinfile), shell=True).strip('\n')
 

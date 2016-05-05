@@ -239,12 +239,13 @@ bindsym $mod+Mod1+Control+"XF86LaunchB" exec --no-startup-id sh -c 'notify-send 
 bindsym $mod+Control+z exec zim --plugin quicknote --input clipboard 
 bindsym $mod+backslash exec termite -e ranger
 
-bindsym Mod3+v exec --no-startup-id xdotool getwindowfocus key --window %1 click 2
+bindsym Mod3+v exec --no-startup-id xdotool getwindowfocus key click 2
 # vim's hjkl everywhere
-bindsym Mod3+h exec --no-startup-id xdotool getwindowfocus key --window %1 Left
-bindsym Mod3+j exec --no-startup-id xdotool getwindowfocus key --window %1 Down
-bindsym Mod3+k exec --no-startup-id xdotool getwindowfocus key --window %1 Up
-bindsym Mod3+l exec --no-startup-id xdotool getwindowfocus key --window %1 Right
+bindsym $mod+n exec --no-startup-id xdotool getwindowfocus key Return
+bindsym Mod3+h exec --no-startup-id xdotool getwindowfocus key Left
+bindsym Mod3+j exec --no-startup-id xdotool getwindowfocus key Down
+bindsym Mod3+k exec --no-startup-id xdotool getwindowfocus key Up
+bindsym Mod3+l exec --no-startup-id xdotool getwindowfocus key Right
 
 bindsym $mod+grave border toggle
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -294,7 +295,7 @@ new_window pixel 2
 
 # autostart
 # exec --no-startup-id xautolock -detectsleep -time 15 -locker "~/sh/locker.sh"
-exec --no-startup-id nm-applet
+exec --no-startup-id dhcpcd-gtk
 exec --no-startup-id clipit
 exec --no-startup-id cbatticon
 #exec --no-startup-id pcmanfm -d
