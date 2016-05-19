@@ -1,8 +1,8 @@
-#text/html; w3m -I %{charset} -T text/html; copiousoutput;
-text/html; iconv -f %{charset} -t utf-8 %s | html2text; copiousoutput;
-image/*; feh_browser.sh %s; edit=gimp %s;
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+#text/html; iconv -f %{charset} -t utf-8 %s | html2text; copiousoutput;
+image/*; ~/sh/muttmailcapfork.sh feh_browser.sh %s; edit=~/sh/muttmailcapfork.sh gimp %s;
 # test=RunningX;
-application/pdf; zathura %s;
+application/pdf; ~/sh/muttmailcapfork.sh zathura %s;
 #application/pdf; pdftohtml -q -stdout %s | w3m -T text/html; copiousoutput
 #application/msword; libreoffice %s; test=RunningX;
 application/msword; antiword %s | more;
