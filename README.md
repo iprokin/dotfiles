@@ -1,10 +1,9 @@
 # dotfiles
 
-<pre>
-cd ~
-git init
-git remote add origin <repo>
-git fetch
-git branch master origin/master
-git checkout master
-</pre>
+    cd ~
+    git init
+    git remote add origin <repo>
+    git fetch
+    git branch master origin/master
+    git checkout master
+
