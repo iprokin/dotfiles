@@ -33,6 +33,8 @@ bind index N search-opposite
 bind pager N search-opposite
 bind attach,index,pager \CD next-page
 bind attach,index,pager \CU previous-page
+bind attach,index,pager \CF next-page
+bind attach,index,pager \CB previous-page
 bind pager gg top
 bind pager G bottom
 bind attach,index gg first-entry
@@ -47,7 +49,8 @@ bind index p recall-message
 macro index SS "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
 macro index Ss "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
 # view in browser macro
-macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && $BROWSER ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
+macro attach V "<pipe-entry>cat >~/.cache/mutt/mail.html && $BROWSER ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
+macro attach S "<pipe-message>ripmime -i - -d "
 
 # Account
 set mbox_type=Maildir

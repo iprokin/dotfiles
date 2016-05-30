@@ -69,7 +69,7 @@ else
 endif
 
 " special characters
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+" set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set list
 
 " split navigations
@@ -101,6 +101,27 @@ function Pyth()
     normal m`:%s/\s\+$//e ``
     ab ipd import ipdb; ipdb.set_trace()
     ab fxl for x in range(len(x)):
+endfunction
+
+function OneSentencePerLine()
+    execute '%s/\([a-z-:;]\) \*\n\([a-z-:;]\)/\1 \2/g'
+    execute '%s/\([.!?]\) \+\([A-Z]\|\[\)/\1\r\2/g'
+    execute '%s/ \+/ /g'
+    execute '%s/\v^ +//g'
+endfunction
+
+function OneSentencePerLineVis()
+    execute 's/\([a-z-:;]\) \*\n\([a-z-:;]\)/\1 \2/g'
+    execute 's/\([.!?]\) \+\([A-Z]\|\[\)/\1\r\2/g'
+    execute 's/ \+/ /g'
+    execute 's/\v^ +//g'
+endfunction
+
+function SoftWrap()
+    set wrap
+    set linebreak
+    set textwidth=0
+    set wrapmargin=0
 endfunction
 
 " mutt

@@ -214,6 +214,7 @@ bindsym "XF86MonBrightnessDown" exec --no-startup-id ~/sh/xbright.py scr -10
 bindsym "XF86MonBrightnessUp" exec --no-startup-id ~/sh/xbright.py scr +10
 bindsym "XF86KbdBrightnessDown" exec --no-startup-id ~/sh/xbright.py kbd -10
 bindsym "XF86KbdBrightnessUp" exec --no-startup-id ~/sh/xbright.py kbd +10
+# taking screenshot:
 bindsym $mod+"XF86Eject" exec ~/sh/scrshot.sh
 bindsym "XF86AudioRaiseVolume" exec --no-startup-id amixer set Master 5%+
 bindsym "XF86AudioLowerVolume" exec --no-startup-id amixer set Master 5%-
@@ -231,21 +232,27 @@ bindsym $mod+F8 exec --no-startup-id ~/sh/cmus_now_playing.sh
 bindsym "XF86AudioNext" exec --no-startup-id cmus-remote -n
 bindsym "XF86AudioPrev" exec --no-startup-id cmus-remote -r 
 
-bindsym "XF86LaunchB" exec --no-startup-id sh -c 'notify-send "$(pstate-frequency -G -r)"' 
-bindsym $mod+"XF86LaunchB" exec --no-startup-id sh -c 'notify-send "$(sudo pstate-frequency -S -p 1)"' 
-bindsym $mod+Mod1+"XF86LaunchB" exec --no-startup-id sh -c 'notify-send "$(sudo pstate-frequency -S -p 2)"' 
-bindsym $mod+Mod1+Control+"XF86LaunchB" exec --no-startup-id sh -c 'notify-send "$(sudo pstate-frequency -S -p 3)"' 
+bindsym "XF86LaunchB" exec --no-startup-id notify-send "$(pstate-frequency -G -r)"
+bindsym $mod+"XF86LaunchB" exec --no-startup-id notify-send "$(sudo pstate-frequency -S -p 1)" 
+bindsym $mod+Mod1+"XF86LaunchB" exec --no-startup-id notify-send "$(sudo pstate-frequency -S -p 2)"
+bindsym $mod+Mod1+Control+"XF86LaunchB" exec --no-startup-id notify-send "$(sudo pstate-frequency -S -p 3)"
 
 bindsym $mod+Control+z exec zim --plugin quicknote --input clipboard 
 bindsym $mod+backslash exec termite -e ranger
 
-bindsym Mod3+v exec --no-startup-id xdotool getwindowfocus key click 2
-# vim's hjkl everywhere
-bindsym $mod+n exec --no-startup-id xdotool getwindowfocus key Return
+#bindsym Mod3+v exec --no-startup-id xdotool getwindowfocus key click 2
+bindsym Mod3+v exec --no-startup-id "xsel -o -p | xsel -b"
+# vim's hjkl and forward backward everywhere 
+#bindsym $mod+n exec --no-startup-id xdotool getwindowfocus key Return
 bindsym Mod3+h exec --no-startup-id xdotool getwindowfocus key Left
 bindsym Mod3+j exec --no-startup-id xdotool getwindowfocus key Down
 bindsym Mod3+k exec --no-startup-id xdotool getwindowfocus key Up
 bindsym Mod3+l exec --no-startup-id xdotool getwindowfocus key Right
+
+bindsym Mod3+f exec --no-startup-id xdotool getwindowfocus key Next
+bindsym Mod3+b exec --no-startup-id xdotool getwindowfocus key Prior
+
+bindsym Mod3+z exec --no-startup-id xdotool mousemove --window getactivewindow 50 110 sleep 0.1 click 3 sleep 0.1 key Up key Up key Up key Return sleep 0.1 key Return sleep 0.1 type '/home/ilya/Sync/PhD/Documents_PhD/phd_thesis_markdown/source/references'
 
 bindsym $mod+grave border toggle
 # Start i3bar to display a workspace bar (plus the system information i3status

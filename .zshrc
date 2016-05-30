@@ -25,7 +25,7 @@ compinit
 # promptinit
 # prompt adam2
 
-source /usr/share/zsh/scripts/antigen/antigen.zsh
+source $HOME/.antigen.zsh
 antigen use oh-my-zsh
 antigen theme bira
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -116,4 +116,9 @@ functuion togglegithome() {
 . $HOME/sh/sshing.sh
 
 # some extra functions
-function iepdfl() { inkscape -z $1 --export-pdf="${1%.*}.pdf" --export-latex }
+function ipdfl() { inkscape -z $1 --export-pdf="${1%.*}.pdf" --export-latex }
+function ipdf() { inkscape -z $1 --export-pdf="${1%.*}.pdf" }
+
+function rfsr(); { str=${"$(cat ~/Sync/PhD/Documents_PhD/phd_thesis_markdown/source/references.bib | grep $1)":9:-1}; echo $str; echo -n "@$str" | xsel -b }
+
+[[ $(ls -di /) != "2 /" ]] && export PS1="(chroot) $PS1"
