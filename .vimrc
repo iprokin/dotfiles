@@ -104,18 +104,18 @@ function Pyth()
 endfunction
 
 function OneSentencePerLine()
-    execute '%s/\([a-z-:;]\) \*\n\([a-z-:;]\)/\1 \2/g'
-    execute '%s/\([.!?]\) \+\([A-Z]\|\[\)/\1\r\2/g'
+    execute '%s/\([a-z-:;]\) *\n *\([a-z-:;]\)/\1 \2/g'
+    execute '%s/\([.!?]\)[ \n]*\([A-Z]\|\[\)/\1\r\2/g'
     execute '%s/ \+/ /g'
     execute '%s/\v^ +//g'
 endfunction
 
-function OneSentencePerLineVis()
-    execute 's/\([a-z-:;]\) \*\n\([a-z-:;]\)/\1 \2/g'
-    execute 's/\([.!?]\) \+\([A-Z]\|\[\)/\1\r\2/g'
-    execute 's/ \+/ /g'
-    execute 's/\v^ +//g'
-endfunction
+" function OneSentencePerLineVis()
+"     execute 's/\([a-z-:;]\) \*\n *\([a-z-:;]\)/\1 \2/g'
+"     execute 's/\([.!?]\)[ \n]\*\([A-Z]\|\[\)/\1\r\2/g'
+"     execute 's/ \+/ /g'
+"     execute 's/\v^ +//g'
+" endfunction
 
 function SoftWrap()
     set wrap
