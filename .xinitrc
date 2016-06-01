@@ -6,7 +6,7 @@ setxkbmap -option compose:ralt
 setxkbmap -layout us,ru -option grp:alt_space_toggle,grp_led:caps
 xmodmap ~/.Xmodmap
 xcape
-sudo tee /sys/module/hid_apple/parameters/fnmode <<< 2&
+echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode&
 pstate-frequency -S -p 2&
 #exec awesome
 exec i3
