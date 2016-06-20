@@ -36,8 +36,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec termite
-bindsym $mod+Control+Return exec st
+bindsym $mod+Return exec st
+bindsym $mod+Control+Return exec termite
 bindsym $mod+Shift+Return exec sh -c 'CONF=~/.config/termite && FILE=$(ls $CONF | dmenu) && termite -c $CONF/$FILE'
 
 # kill focused window
@@ -196,10 +196,10 @@ set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) re
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym p exec --no-startup-id systemctl poweroff -i, mode "default"  
+    bindsym s exec --no-startup-id $Locker && sudo /usr/local/bin/suspend_resume.sh suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && sudo /usr/local/bin/suspend_resume.sh suspend disk, mode "default"
+    bindsym r exec --no-startup-id sudo reboot, mode "default"
+    bindsym p exec --no-startup-id sudo poweroff, mode "default"  
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -240,7 +240,10 @@ bindsym $mod+Mod1+"XF86LaunchB" exec --no-startup-id notify-send "$(sudo pstate-
 bindsym $mod+Mod1+Control+"XF86LaunchB" exec --no-startup-id notify-send "$(sudo pstate-frequency -S -p 3)"
 
 bindsym $mod+Control+z exec zim --plugin quicknote --input clipboard 
-bindsym $mod+backslash exec termite -e ranger
+bindsym $mod+backslash exec st -e ranger
+
+# typing greek with xdotool
+bindsym Mod3+g exec --no-startup-id echo "Δ\nΘ\nα\nβ\nγ" | dmenu | xargs xdotool type
 
 #bindsym Mod3+v exec --no-startup-id xdotool getwindowfocus key click 2
 bindsym Mod3+v exec --no-startup-id "xsel -o -p | xsel -b"

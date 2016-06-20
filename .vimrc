@@ -1,4 +1,3 @@
-
 " set mouse=a
 set nocompatible
 let mapleader=" "
@@ -15,6 +14,17 @@ set splitbelow
 set splitright
 set hlsearch
 
+" special characters
+" set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set list
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" It's useful to show the buffer number in the status line.
+set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
 " buffers
 let g:airline#extensions#tabline#enabled = 1
 " Move to the next buffer
@@ -29,57 +39,11 @@ let g:gruvbox_bold=1
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_light='hard'
 
-function! CopyMatches(reg)
-  let hits = []
-  %s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/ge
-  let reg = empty(a:reg) ? '+' : a:reg
-  execute 'let @'.reg.' = join(hits, "\n") . "\n"'
-endfunction
-command! -register CopyMatches call CopyMatches(<q-reg>)
-
-function TextMode()
-    set nocursorline
-    set colorcolumn=73
-    set tw=72
-    "noremap k gk
-    "noremap j gj
-    set spell spelllang=en_us
-    let terminal_emulator=system("ps -o comm= -p \"$(($(ps -o ppid= -p \"$(($(ps -o sid= -p \"$$\")))\")))\"")
-    hi Normal ctermbg=none
-    "if terminal_emulator=="lilyterm\n"
-    "   hi Normal ctermbg=none
-    "endif
-endfunction
-
-function Set_PaperColorTheme()
-    set background=light
-    colorscheme PaperColor
-    " correct PaperColor's issue with spell
-    hi SpellBad cterm=underline
-    hi SpellLocal cterm=underline
-endfunction
-
-
-if $VIM_LIGHT
-    call Set_PaperColorTheme()
-else
-    " set background=dark
-    set background=light
-    colorscheme gruvbox
-endif
-
-" special characters
-" set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-set list
-
 " split navigations
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
 
 " pandoc
 augroup pandoc_syntax
@@ -99,8 +63,11 @@ function Pyth()
     set autoindent
     set fileformat=unix
     normal m`:%s/\s\+$//e ``
-    ab ipd import ipdb; ipdb.set_trace()
+    ab ipdb import ipdb; ipdb.set_trace()
+    ab inp import numpy as np
+    ab ipd import pandas as pd
     ab fxl for x in range(len(x)):
+    ab iplt import matplotlib.pyplot as plt
 endfunction
 
 function OneSentencePerLine()
@@ -135,8 +102,6 @@ endfunction
 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
-" It's useful to show the buffer number in the status line.
-set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 " set linespace=5
 " gvim stuff
@@ -152,4 +117,42 @@ map <F11> <Esc>:call ToggleGUICruft()<cr>
 " by default, hide gui menus
 set guioptions=i
 
+function! CopyMatches(reg)
+  let hits = []
+  %s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/ge
+  let reg = empty(a:reg) ? '+' : a:reg
+  execute 'let @'.reg.' = join(hits, "\n") . "\n"'
+endfunction
+command! -register CopyMatches call CopyMatches(<q-reg>)
 
+function TextMode()
+    set nocursorline
+    "set colorcolumn=73
+    "set tw=72
+    call SoftWrap()
+    "noremap k gk
+    "noremap j gj
+    set spell spelllang=en_us
+    let terminal_emulator=system("ps -o comm= -p \"$(($(ps -o ppid= -p \"$(($(ps -o sid= -p \"$$\")))\")))\"")
+    hi Normal ctermbg=none
+    "if terminal_emulator=="lilyterm\n"
+    "   hi Normal ctermbg=none
+    "endif
+endfunction
+
+function Set_PaperColorTheme()
+    set background=light
+    colorscheme PaperColor
+    " correct PaperColor's issue with spell
+    hi SpellBad cterm=underline
+    hi SpellLocal cterm=underline
+endfunction
+
+
+if $VIM_LIGHT
+    call Set_PaperColorTheme()
+else
+    " set background=dark
+    set background=light
+    colorscheme gruvbox
+endif

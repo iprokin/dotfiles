@@ -27,13 +27,18 @@ compinit
 
 source $HOME/.antigen.zsh
 antigen use oh-my-zsh
-antigen theme bira
+antigen theme kphoen
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle tarruda/zsh-autosuggestions
 antigen bundle git
+#antigen bundle Vifon/deer
+antigen apply
 unalias gm
 
 bindkey -v
+
+#zle -N deer
+#bindkey '^d' deer
 
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

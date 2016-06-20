@@ -187,6 +187,7 @@ keymap b PREV_WORD
 keymap C-i REDO
 keymap C-o UNDO
 ########## navigation ##########
+#keymap RET GOTO_LINK
 keymap f MOVE_LIST_MENU
 keymap F LIST_MENU
 keymap C-n NEXT_LINK
