@@ -235,15 +235,17 @@ bindsym "XF86AudioNext" exec --no-startup-id cmus-remote -n
 bindsym "XF86AudioPrev" exec --no-startup-id cmus-remote -r 
 
 bindsym "XF86LaunchB" exec --no-startup-id notify-send "$(pstate-frequency -G -r)"
-bindsym $mod+"XF86LaunchB" exec --no-startup-id notify-send "$(sudo pstate-frequency -S -p 1)" 
-bindsym $mod+Mod1+"XF86LaunchB" exec --no-startup-id notify-send "$(sudo pstate-frequency -S -p 2)"
-bindsym $mod+Mod1+Control+"XF86LaunchB" exec --no-startup-id notify-send "$(sudo pstate-frequency -S -p 3)"
+bindsym $mod+"XF86LaunchB" exec --no-startup-id sudo pstate-frequency -S -p 1
+bindsym $mod+Mod1+"XF86LaunchB" exec --no-startup-id notify-send sudo pstate-frequency -S -p 2
+bindsym $mod+Mod1+Control+"XF86LaunchB" exec --no-startup-id notify-send sudo pstate-frequency -S -p 3
 
 bindsym $mod+Control+z exec zim --plugin quicknote --input clipboard 
 bindsym $mod+backslash exec st -e ranger
 
 # typing greek with xdotool
-bindsym Mod3+g exec --no-startup-id echo "Δ\nΘ\nα\nβ\nγ" | dmenu | xargs xdotool type
+bindsym Mod3+g exec --no-startup-id echo "Δ\nΘ\nα\nβ\nγ\nμ" | dmenu | xargs xdotool type
+bindsym Mod3+d exec --no-startup-id echo -n "$(date '+%d/%m/%Y')" | xsel -b
+#bindsym Mod3+d exec --no-startup-id xdotool type "$(date '+%d/%m/%Y')"
 
 #bindsym Mod3+v exec --no-startup-id xdotool getwindowfocus key click 2
 bindsym Mod3+v exec --no-startup-id "xsel -o -p | xsel -b"
@@ -257,7 +259,17 @@ bindsym Mod3+l exec --no-startup-id xdotool getwindowfocus key Right
 bindsym Mod3+f exec --no-startup-id xdotool getwindowfocus key Next
 bindsym Mod3+b exec --no-startup-id xdotool getwindowfocus key Prior
 
-bindsym Mod3+z exec --no-startup-id xdotool mousemove --window getactivewindow 50 110 sleep 0.1 click 3 sleep 0.1 key Up key Up key Up key Return sleep 0.1 key Return sleep 0.1 type '/home/ilya/Sync/PhD/Documents_PhD/phd_thesis_markdown/source/references'
+set $mode_zotero Zotero (c) import from clipboard
+mode "$mode_zotero" {
+#    bindsym e exec xdotool getwindowfocus key Escape sleep 0.1 mousemove 50 110 sleep 0.1 click 3 sleep 0.2 key Up Up Up sleep 0.5 key Return sleep 0.2 key Return sleep 0.1 type '/home/ilya/Sync/PhD/Documents_PhD/phd_thesis_markdown/source/references'
+    bindsym c exec xdotool key Escape alt+f sleep 0.1 key Up Up Up Return
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym Mod3+z mode "$mode_zotero"
 
 bindsym $mod+grave border toggle
 # Start i3bar to display a workspace bar (plus the system information i3status

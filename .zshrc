@@ -87,11 +87,12 @@ bindkey '^r' ranger-cd
 
 # aliases and functions
 
+alias v="vim"
 alias tmux="TERM=tmux-256color tmux $@"
 alias hat="highlight --out-format=ansi $@"
 
 function svim() { st -e vim $@ & }
-function chrme() { chromium --app=http://$1/notebooks/$2 & }
+function ipynbo() { surf -z 1.1 http://$1/notebooks/$2 & }
 
 alias la="ls -al"
 alias lsg="ls | grep"

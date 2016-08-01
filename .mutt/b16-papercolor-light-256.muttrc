@@ -52,7 +52,7 @@ color markers     color1      default
 color attachment  color20     default
 #color search      color2      default
 color search      color189    color5
-color status      color20     color21
+color status      color20     color254
 color indicator   color19     color7
 color tree        color7      default                 # arrow in threads
 
@@ -67,10 +67,10 @@ color index       color1      default      "~v~(~F)"  # collapsed thread with so
 color index       default     color1       "~D"       # deleted messages
 
 # header
-color hdrdefault  color20     color21
-color header      color20     color21      "^"
-color header      color19     color21      "^(From)"
-color header      color19     color21      "^(Subject)"
+color hdrdefault  color20     color254
+color header      color20     color254      "^"
+color header      color19     color254      "^(From)"
+color header      color19     color254      "^(Subject)"
 
 # body
 color normal      color0      default

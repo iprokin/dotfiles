@@ -3,13 +3,13 @@
 /**/
 
 /**/
-.CodeMirror pre {font-family: 'Envy Code R', Terminus, monospace, 'DejaVu Sans Mono'; font-size: 10pt;}
+.CodeMirror pre {font-family: 'Envy Code R', Terminus, monospace, 'DejaVu Sans Mono'; font-size: 11pt;}
 
 .container { width:100% !important; }
 
 .prompt { margin-left:-11ex; font-size: 6px; }
 .prompt.input_prompt { color: rgba(0,0,0,0.5); }
 
-#notebook { font-size: 10pt; } 
+#notebook { font-size: 11pt; } 
 #menubar-container { font-size: 10pt; } 
 /**/

@@ -3,4 +3,5 @@ Type=Application
 Name=mutt
 GenericName=Mail
 #Exec=termite -c ~/.config/termite/b16-papercolor-light -e 'fish -c mutt'
-Exec=termite -t 'mutt' -c ~/.config/termite/b16-solarized-light -e 'sh -c "cd ~/Downloads && offlineimap -qf INBOX ; mutt"'
+#Exec=termite -t 'mutt' -c ~/.config/termite/b16-solarized-light -e 'sh -c "cd ~/Downloads && offlineimap -qf INBOX ; mutt"'
+Exec=st -f 'Inconsolata:pixelsize=17' -t 'mutt' -e sh -c "cd ~/Downloads && offlineimap -qf INBOX ; mutt"

@@ -380,7 +380,7 @@ figure.figsize   : 6, 5    # figure size in inches
                                   # A value of 20000 is probably a good
                                   # starting point.
 ### SAVING FIGURES
-#path.simplify : True   # When True, simplify paths by removing "invisible"
+path.simplify : True   # When True, simplify paths by removing "invisible"
                         # points to reduce file size and increase rendering
                         # speed
 #path.simplify_threshold : 0.1  # The threshold of similarity below which

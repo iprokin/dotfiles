@@ -138,6 +138,26 @@ function TextMode()
     "if terminal_emulator=="lilyterm\n"
     "   hi Normal ctermbg=none
     "endif
+    "let g:citation_vim_bibtex_file=["/home/ilya/Sync/PhD/Documents_PhD/phd_thesis_markdown/source/references.bib"]
+    "let g:citation_vim_mode="bibtex"
+    "nmap u [unite] nnoremap [unite]
+    "nnoremap <silent>[unite]c       :<C-u>Unite -buffer-name=citation   -start-insert -default-action=append      bibtex<cr>
+    "nmap <leader>c       :<C-u>Unite -buffer-name=citation   -start-insert -default-action=append      bibtex<cr>
+endfunction
+
+function ReplaceELIFE()
+    execute '%s/\v([0-9\.]+)±([0-9\.]+)/$\1\\pm\2$/g'
+    execute '%s/tLTD/t-LTD/g'
+    execute '%s/tLTP/t-LTP/g'
+    execute '%s/μ/$\\mu$/g'
+    execute '%s/N\~pairings\~/$N_{pairings}$/g'
+    execute '%s/Δt\~STDP\~/$\Delta t$/g'
+    execute '%s/&gt;/>/g'
+    execute '%s/&lt;/</g'
+    execute '%s/τ/$\\tau$/g'
+    execute '%s/\*W\*\~total\~/$W_{total}$/g'
+    execute '%s/\*W\*\~post\~/$W_{post}$/g'
+    execute '%s/\*W\*\~pre\~/$W_{pre}$/g'
 endfunction
 
 function Set_PaperColorTheme()
