@@ -9,4 +9,5 @@ xcape
 echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode&
 pstate-frequency -S -p 2&
 #exec awesome
+nice -n 19 ionice -c3 sh -c '/usr/share/gopreload/bin/StartPreload.sh'&
 exec i3

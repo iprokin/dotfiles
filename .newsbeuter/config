@@ -27,11 +27,12 @@ bind-key K prev article
 # your terminal emulator to use the Solarized palette.
 # See <http://ethanschoonover.com/solarized/> for more information.
 
-color background   default   default
-color listnormal   default   default
-color listfocus    black     yellow
-color info         black     white
-color article      default   default
+color background        default   default
+color listnormal        default   default
+color listfocus_unread  black     default
+color listfocus         black     yellow
+color info              black     white
+color article           default   default
 
 # highlights
 highlight article "^(Title):.*$" blue default
