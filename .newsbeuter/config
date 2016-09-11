@@ -4,6 +4,8 @@ player mpv
 #html-renderer w3m
 html-renderer internal
 text-width 72
+goto-next-feed no
+article-sort-order date-asc
 
 # Vim like keybindings for newsbeuter
 bind-key j next

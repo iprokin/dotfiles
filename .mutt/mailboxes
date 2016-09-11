@@ -1,1 +1,1 @@
-mailboxes "+Gmail/INBOX"
+mailboxes "+Gmail/INBOX" "+Gmail/archive" "+Gmail/drafts" "+Gmail/flagged" "+Gmail/sent" "+Gmail/trash"
