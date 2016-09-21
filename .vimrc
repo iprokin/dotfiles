@@ -14,6 +14,10 @@ set splitbelow
 set splitright
 set hlsearch
 
+" LaTeX
+"set grepprg=grep\ -nH\ $*
+"let g:tex_flavor = "latex"
+
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}

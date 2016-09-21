@@ -245,6 +245,8 @@ bindsym $mod+Mod1+Control+"XF86LaunchB" exec --no-startup-id sudo pstate-frequen
 bindsym $mod+Control+z exec zim --plugin quicknote --input clipboard 
 bindsym $mod+backslash exec st -e ranger
 
+bindsym $mod+c exec st -c "MyDict" -T "MyDict" -e sh -c 'sdcv "$(xsel -b)" > /tmp/dictquery.txt && vim /tmp/dictquery.txt'
+
 # typing greek with xdotool
 bindsym Mod3+g exec --no-startup-id echo "Δ\nΘ\nα\nβ\nγ\nμ" | dmenu | xargs xdotool type
 bindsym Mod3+d exec --no-startup-id echo -n "$(date '+%d/%m/%Y')" | xsel -b
@@ -297,6 +299,8 @@ for_window [title="Preferences$"] floating enable
 for_window [class="^Xboard$"] floating enable
 #for_window [class="^q[tT]ox$"] floating enable
 for_window [class="^chromium$"] floating disable
+for_window [title="^MyDict$"] floating enable
+for_window [class="^MyDict$"] floating enable
 assign [class="^Firefox$"] 2
 assign [class="^qutebrowser$"] 2
 assign [class="^chromium$"] 4

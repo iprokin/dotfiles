@@ -58,7 +58,7 @@ set mbox_type=Maildir
 set folder = "~/Mail"
 source ~/.mutt/mailboxes
 set spoolfile = "+Gmail/INBOX"
-set record = "+Gmail/sent"
+#set record = "+Gmail/sent"
 set postponed = "+Gmail/drafts"
 unset move               # gmail does put messages to Sent itself
 unset record             # Gmail will save the emails
