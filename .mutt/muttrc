@@ -88,8 +88,9 @@ set my_guser = isprokin@gmail.com
 # Gmail send
 set realname = 'Ilya Prokin'
 set from = $my_guser
-set smtp_url="smtps://$my_guser:$my_gpass@smtp.gmail.com:465/"
-set ssl_force_tls = yes
+set smtp_url = "smtps://$my_guser:$my_gpass@smtp.gmail.com:465/"
+#set ssl_starttls = yes
+#set ssl_force_tls = yes
 
 
 

@@ -14,10 +14,6 @@ set splitbelow
 set splitright
 set hlsearch
 
-" LaTeX
-"set grepprg=grep\ -nH\ $*
-"let g:tex_flavor = "latex"
-
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -148,7 +144,7 @@ function TextMode()
     "noremap j gj
     set spell spelllang=en_us
     let terminal_emulator=system("ps -o comm= -p \"$(($(ps -o ppid= -p \"$(($(ps -o sid= -p \"$$\")))\")))\"")
-    hi Normal ctermbg=none
+    "hi Normal ctermbg=none
     "if terminal_emulator=="lilyterm\n"
     "   hi Normal ctermbg=none
     "endif

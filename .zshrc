@@ -27,7 +27,7 @@ compinit
 
 source $HOME/.antigen.zsh
 antigen use oh-my-zsh
-antigen theme kphoen
+antigen theme amuse
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle tarruda/zsh-autosuggestions
 antigen bundle git
@@ -103,6 +103,8 @@ alias cdt="cd ~/Sync/PhD/Documents_PhD/phd_thesis_markdown"
 #alias cdsp="cd $HOME/GitHub/suppositoire/scripts"
 alias G="grep"
 alias HG="history | grep"
+
+function chrme() { firejail chromium --app=http://$1/notebooks/$2 & }
 
 function pidgrep() { ps axu | grep -i $1 | awk '{print $2}' }
 function skillf () { pidgrep $1 | xargs kill $2 }

@@ -245,7 +245,8 @@ bindsym $mod+Mod1+Control+"XF86LaunchB" exec --no-startup-id sudo pstate-frequen
 bindsym $mod+Control+z exec zim --plugin quicknote --input clipboard 
 bindsym $mod+backslash exec st -e ranger
 
-bindsym $mod+c exec st -c "MyDict" -T "MyDict" -e sh -c 'sdcv "$(xsel -b)" > /tmp/dictquery.txt && vim /tmp/dictquery.txt'
+bindsym $mod+c exec st -c "MyDict" -T "MyDict" -e sh -c 'sdcv "$(xsel -b)" | sed "s/<[^>]\+>//g" > /tmp/dictquery.txt && vim /tmp/dictquery.txt'
+bindsym $mod+F3 exec notify-send -t 300000 "Calcurse notification" "$(calcurse -d 30)"
 
 # typing greek with xdotool
 bindsym Mod3+g exec --no-startup-id echo "Δ\nΘ\nα\nβ\nγ\nμ" | dmenu | xargs xdotool type
