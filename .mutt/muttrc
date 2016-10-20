@@ -25,6 +25,8 @@ set askcc
 set use_from = yes
 
 # key bindings
+bind index - collapse-thread
+bind index _ collapse-all
 bind pager <up> previous-line #scroll inside the message rather than the index
 bind pager <down> next-line
 bind pager j next-line

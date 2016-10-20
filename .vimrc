@@ -105,6 +105,7 @@ endfunction
 au BufRead /tmp/mutt-* call Mutt()
 function Mutt()
     set tw=72
+    set linebreak
     set spell spelllang=en_us,ru
     set background=light
     " call Set_PaperColorTheme()

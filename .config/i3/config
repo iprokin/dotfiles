@@ -318,7 +318,7 @@ new_window pixel 2
 
 # autostart
 # exec --no-startup-id xautolock -detectsleep -time 15 -locker "~/sh/locker.sh"
-exec --no-startup-id dhcpcd-gtk
+exec --no-startup-id wpa_gui -t
 exec --no-startup-id clipit
 exec --no-startup-id cbatticon
 #exec --no-startup-id pcmanfm -d
