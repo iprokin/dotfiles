@@ -1,12 +1,13 @@
 #bindkey -v # vi mode
 
-export PATH="$HOME/sh:/usr/local/bin:$PATH"
+export PATH="$HOME/scripts:/usr/local/bin:$PATH"
+export PATH=$PATH:$HOME/.cabal/bin
 export PYTHONPATH="$HOME/Sync/MyPy"
 export VISUAL=vim
 export EDITOR=vim
 export BROWSER=qutebrowser
 export TERM=xterm-256color
-. ~/sh/lesscolors.sh
+. ~/scripts/lesscolors.sh
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
@@ -121,7 +122,7 @@ functuion togglegithome() {
   fi
 }
 
-. $HOME/sh/sshing.sh
+. $HOME/scripts/sshing.sh
 
 # some extra functions
 function ipdfl() { inkscape -z $1 --export-pdf="${1%.*}.pdf" --export-latex }

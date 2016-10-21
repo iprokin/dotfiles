@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Meh
 GenericName=Image viewer
-Exec=/home/ilya/sh/meh_browser.py %f
+Exec=/home/ilya/scripts/meh_browser.py %f
 
 Terminal=false
 Type=Application

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Toxic
+Comment=A CLI based Tox client
+Icon=utilities-terminal
+Categories=InstantMessaging;AudioVideo;Network;
+MimeType=x-scheme-handler/tox;
+Exec=termite -t 'Toxic' -e 'abduco -A toxic toxic -f /home/ilya/.config/tox/ilya.prokin.tox'

@@ -3,7 +3,7 @@ Name=Feh
 GenericName=Image viewer
 GenericName[en_US]=Image viewer
 Comment=Fast Imlib2-based Image Viewer
-Exec=/home/ilya/sh/feh_browser.sh %f
+Exec=/home/ilya/scripts/feh_browser.sh %f
 
 Terminal=false
 Type=Application

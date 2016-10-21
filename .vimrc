@@ -108,6 +108,10 @@ function Mutt()
     set linebreak
     set spell spelllang=en_us,ru
     set background=light
+    ab crd Cordialement
+    ab br Best Regards
+    ab bnj Bonjour
+    ab mb maybe
     " call Set_PaperColorTheme()
 endfunction
 
