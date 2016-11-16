@@ -37,7 +37,7 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec st
-bindsym $mod+Control+Return exec termite
+bindsym $mod+Control+Return exec lilyterm
 bindsym $mod+Shift+Return exec sh -c 'CONF=~/.config/termite && FILE=$(ls $CONF | dmenu) && termite -c $CONF/$FILE'
 
 # kill focused window
@@ -54,7 +54,7 @@ bindsym $mod+Control+p exec rofi -show run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # jump to window
-bindsym $mod+Tab exec rofi -show window 
+bindsym $mod+slash exec rofi -show window 
 bindsym Mod1+Tab workspace back_and_forth 
 bindsym $mod+u [urgent=latest] focus
 # change focus
@@ -273,8 +273,9 @@ bindsym $mod+grave border toggle
 # finds out, if available)
 bar {
   tray_output       LVDS1
-#    status_command    i3status
-  status_command    python ~/.config/i3/status.py 
+  #status_command    i3status
+  status_command    i3blocks
+  #status_command    python ~/.config/i3/status.py 
   position          top
 #    mode              hide
   workspace_buttons yes
@@ -299,12 +300,12 @@ for_window [window_role="task_dialog"] floating enable
 for_window [title="Preferences$"] floating enable
 for_window [class="^Xboard$"] floating enable
 #for_window [class="^q[tT]ox$"] floating enable
-for_window [class="^chromium$"] floating disable
+for_window [class="^[cC]hromium$"] floating disable
 for_window [title="^MyDict$"] floating enable
 for_window [class="^MyDict$"] floating enable
 assign [class="^Firefox$"] 2
 assign [class="^qutebrowser$"] 2
-assign [class="^chromium$"] 4
+assign [class="^[cC]hromium$"] 4
 assign [title="C* Music Player"] 9
 workspace 2 output LVDS1
 workspace 9 output LVDS1
@@ -318,15 +319,15 @@ new_window pixel 2
 
 # autostart
 # exec --no-startup-id xautolock -detectsleep -time 15 -locker "~/scripts/locker.sh"
-exec --no-startup-id dhcpcd-gtk
-exec --no-startup-id clipit
-exec --no-startup-id cbatticon
+#exec --no-startup-id dhcpcd-gtk
+#exec --no-startup-id clipit
+#exec --no-startup-id cbatticon
 #exec --no-startup-id pcmanfm -d
-exec --no-startup-id dunst
+#exec --no-startup-id dunst
 #exec --no-startup-id compton -b --backend glx --vsync opengl -f -t 0 -l 0 -r 3 -D7 -m 0.95 
-exec --no-startup-id compton -b
+#exec --no-startup-id compton -b
 exec_always --no-startup-id ~/.fehbg
 
 # mac 9,2 specific startup
-exec --no-startup-id xcalib ~/.local/share/icc/color.icc
+#exec --no-startup-id xcalib ~/.local/share/icc/color.icc
 exec_always --no-startup-id amixer -D hw:0 set 'IEC958',16 mute > /dev/null

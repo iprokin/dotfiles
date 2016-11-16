@@ -120,3 +120,9 @@ macro index gi "<change-folder> =Gmail/INBOX<enter>"    "go to INBOX"
 macro index gd "<change-folder> =Gmail/drafts<enter>"   "go to drafts"
 macro index gt "<change-folder> =Gmail/trash<enter>"    "go to trash"
 macro index gf "<change-folder> =Gmail/flagged<enter>"  "go to flagged"
+
+# extract url
+macro index,pager \cb "<enter-command> set my_pdsave=\$pipe_decode<enter>\
+<enter-command> unset pipe_decode<enter>\
+<pipe-message>extract_url<enter>\
+<enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
