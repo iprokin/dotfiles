@@ -102,5 +102,6 @@ color body        color4      default      "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#
 # custom highlights ----------------------------------------------------
 # custom index highlights ----------------------------------------------
 color index       color124    default       "~f 'Hugues Berry' !~N !~T !~F"
+color index       color28    default       "~f 'Venance' !~N !~T !~F"
 # check colors with: 
 # perl -e 'print map sprintf(" \x1b[38;5;%um%4u", $_, $_), 0 .. 255'
