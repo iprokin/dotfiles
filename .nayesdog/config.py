@@ -7,12 +7,15 @@ feeds_url_dict = {
     'Nature Research': 'http://feeds.nature.com/NatureLatestResearch',
     'Arstechnica': 'http://feeds.arstechnica.com/arstechnica/science',
     'Science': 'http://www.sciencemag.org/rss/current.xml',
+    'IEEE': 'http://spectrum.ieee.org/rss/fulltext',
 } 
-word_counts_database_file = DEFAULTCONFIGPATH + '/tables.py.gz'
-previous_session_database_file = DEFAULTCONFIGPATH + '/previous_session'
-maximal_number_of_entries_in_memory = 2000
 
-server_address = ('127.0.0.1', 8081)
-cssfile = DEFAULTCONFIGPATH + '/style/css.css'
-icons_folder = DEFAULTCONFIGPATH + "/style/icons"
-stopwords_file = get_name_in_library('stopwords.txt')
+word_counts_database_file           = DEFAULTCONFIGPATH + '/tables.py.gz'
+previous_session_database_file      = DEFAULTCONFIGPATH + '/previous_session'
+maximal_number_of_entries_in_memory = 5000
+
+stopwords_file                      = get_name_in_library('stopwords.txt')
+server_address                      = ('127.0.0.1', 8081)
+
+cssfile                             = DEFAULTCONFIGPATH + '/style/css.css'
+icons_folder                        = DEFAULTCONFIGPATH + "/style/icons"
