@@ -5,7 +5,7 @@ export PATH=$PATH:$HOME/.cabal/bin
 export PYTHONPATH="$HOME/Sync/MyPy"
 export VISUAL=vim
 export EDITOR=vim
-export BROWSER=qutebrowser
+export BROWSER=firefox
 export TERM=xterm-256color
 . ~/scripts/lesscolors.sh
 
@@ -125,6 +125,7 @@ functuion togglegithome() {
 . $HOME/scripts/sshing.sh
 
 # some extra functions
+
 function ipdfl() { inkscape -z $1 --export-pdf="${1%.*}.pdf" --export-latex }
 function ipdf() { inkscape -z $1 --export-pdf="${1%.*}.pdf" }
 

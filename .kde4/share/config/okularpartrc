@@ -14,11 +14,15 @@ TextHinting=Enabled
 UseKTTSD=false
 
 [Main View]
+ShowBottomBar=false
 ShowLeftPanel=false
 SplitterSizes=115,1075
 
 [Nav Panel]
 CurrentPageOnly=true
+
+[PageView]
+MouseMode=TextSelect
 
 [Reviews]
 AnnotationTools=<tool type="note-linked" id="1"><engine hoverIcon="tool-note" type="PickPoint" color="#ffff00"><annotation icon="Note" type="Text" color="#ffff00"/></engine><shortcut>1</shortcut></tool>,<tool type="note-inline" id="2"><engine hoverIcon="tool-note-inline" block="true" type="PickPoint" color="#ffff00"><annotation type="FreeText" color="#ffff00"/></engine><shortcut>2</shortcut></tool>,<tool type="ink" id="3"><engine type="SmoothLine" color="#000000"><annotation width="2" type="Ink" color="#000000"/></engine><shortcut>3</shortcut></tool>,<tool type="highlight" id="4"><engine type="TextSelector" color="#fae941"><annotation type="Highlight" color="#fae941"/></engine><shortcut>4</shortcut></tool>,<tool type="highlight" id="5"><engine type="TextSelector" color="#80d1ff"><annotation opacity="0.7" type="Highlight" color="#80d1ff"/></engine><shortcut>5</shortcut></tool>,<tool type="highlight" id="6"><engine type="TextSelector" color="#fbaaff"><annotation type="Highlight" color="#fbaaff"/></engine><shortcut>6</shortcut></tool>,<tool type="highlight" id="7"><engine type="TextSelector" color="#dbffa0"><annotation type="Highlight" color="#dbffa0"/></engine><shortcut>7</shortcut></tool>,<tool type="highlight" id="8"><engine type="TextSelector" color="#c0c3ff"><annotation type="Highlight" color="#c0c3ff"/></engine><shortcut>8</shortcut></tool>,<tool type="straight-line" id="9"><engine points="2" type="PolyLine" color="#ffe000"><annotation width="1" type="Line" color="#ffe000"/></engine><shortcut>9</shortcut></tool>,<tool type="polygon" id="10"><engine points="-1" type="PolyLine" color="#007eee"><annotation width="1" type="Line" color="#007eee"/></engine></tool>,<tool type="ellipse" id="11"><engine block="true" type="PickPoint" color="#00ffff"><annotation width="5" type="GeomCircle" color="#00ffff"/></engine></tool>,<tool type="rectangle" id="12" name="Rect"><engine block="true" type="PickPoint" color="#000000"><annotation width="5" innerColor="#000000" type="GeomSquare" color="#000000"/></engine></tool>

@@ -106,9 +106,9 @@ au BufRead /tmp/mutt-* call Mutt()
 function Mutt()
     set tw=72
     set linebreak
-    set spell spelllang=en_us,ru
+    set spell spelllang=en_us,fr,ru
     set background=light
-    ab crd Cordialement
+    ab crd Cordialement,
     ab br Best Regards
     ab bnj Bonjour
     ab mb maybe

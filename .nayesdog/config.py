@@ -8,6 +8,19 @@ feeds_url_dict = {
     'Arstechnica': 'http://feeds.arstechnica.com/arstechnica/science',
     'Science': 'http://www.sciencemag.org/rss/current.xml',
     'IEEE': 'http://spectrum.ieee.org/rss/fulltext',
+    'Nature News': (
+        'HTML',
+        'http://www.nature.com/news/index.html',
+        'https?://[^/]+nature.com/news/[^"]+',
+        "sp.find('section', attrs={'id': 'article-body'})",
+     ),
+    'MIT Technology Review': (
+        'HTMLpref',
+        'https://www.technologyreview.com/daily/',
+        '/s/[^/]+/[^"]+',
+        "sp.find('div', attrs={'class': 'article-body__content'})",
+        'https://www.technologyreview.com',
+    )
 } 
 
 word_counts_database_file           = DEFAULTCONFIGPATH + '/tables.py.gz'
