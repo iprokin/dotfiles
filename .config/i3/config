@@ -206,7 +206,7 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+Escape mode "$mode_system"
+bindsym $mod+Control+Escape mode "$mode_system"
 
 #bindsym Mod1+space exec --no-startup-id ~/scripts/layout_info.sh
 
@@ -249,7 +249,7 @@ bindsym $mod+c exec st -c "MyDict" -T "MyDict" -e sh -c 'sdcv "$(xsel -b)" | sed
 bindsym $mod+F3 exec notify-send -t 300000 "Calcurse notification" "$(calcurse -d 30)"
 
 # typing greek with xdotool
-bindsym Mod3+g exec --no-startup-id echo "Δ\nΘ\nα\nβ\nγ\nμ" | dmenu | xargs xdotool type
+bindsym Mod3+g exec --no-startup-id echo "Δ\nΘ\nα\nβ\nγ\nμ\nτ" | dmenu | xargs xdotool type
 bindsym Mod3+d exec --no-startup-id echo -n "$(date '+%d/%m/%Y')" | xsel -b
 #bindsym Mod3+d exec --no-startup-id xdotool type "$(date '+%d/%m/%Y')"
 

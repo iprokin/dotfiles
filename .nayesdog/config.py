@@ -6,16 +6,23 @@ from nayesdog.config import get_name_in_library, DEFAULTCONFIGPATH
 feeds_url_dict = {
     'Nature Research': 'http://feeds.nature.com/NatureLatestResearch',
     'Arstechnica': 'http://feeds.arstechnica.com/arstechnica/science',
-    'Science': 'http://www.sciencemag.org/rss/current.xml',
     'IEEE': 'http://spectrum.ieee.org/rss/fulltext',
     'Nature News': (
         'HTML',
         'http://www.nature.com/news/index.html',
         'https?://[^/]+nature.com/news/[^"]+',
         "sp.find('section', attrs={'id': 'article-body'})",
+        '',
+     ),
+    'Science': (
+        'HTML',                                                    # Type of parser
+        'http://www.sciencemag.org/news',                          # url with links to news items, MASTER page
+        '/news/[0-9]{4}/[0-9]{1,2}/[^"]+',                         # regex for links to news items
+        "sp.find('article', attrs={'class': 'primary--content'})", # if I follow a link, which HTML element contains useful content
+        'http://www.sciencemag.org',                               # Prefix to prepend to each paresed link from MASTER page
      ),
     'MIT Technology Review': (
-        'HTMLpref',
+        'HTML',
         'https://www.technologyreview.com/daily/',
         '/s/[^/]+/[^"]+',
         "sp.find('div', attrs={'class': 'article-body__content'})",

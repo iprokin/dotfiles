@@ -1,0 +1,3 @@
+nnoremap K gT
+nnoremap J gt
+command -nargs=0 mpv :execute "!mpv '" + content.location.href + "'"

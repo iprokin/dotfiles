@@ -11,16 +11,26 @@ import XMonad.Util.Themes
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders
+
+{-
+import XMonad.Hooks.EwmhDesktops (ewmh)
+import XMonad.Hooks.ManageDocks
+import System.Taffybar.Hooks.PagerHints (pagerHints)
+-}
 --import XMonad.Layout.Groups
+--import XMonad.Layout.Groups.Examples
+
 --import XMonad.Hooks.DynamicLog
 --import XMonad.Hooks.ManageDocks
 --import DBus.Client
 --import System.Taffybar.XMonadLog ( dbusLog )
---import XMonad.Layout.Groups.Examples
 
 baseConfig = desktopConfig
 
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
+main = do
+    statusBar myBar myPP toggleStrutsKey myConfig >>= xmonad
+    --xmonad $ ewmh $ pagerHints $ myConfig
+    --xmonad $ myConfig
 
 myTerminal    = "/usr/bin/st"
 myModMask     = mod4Mask -- Win key or Super_L
@@ -63,6 +73,7 @@ myConfig = baseConfig
     , modMask     = myModMask
     , borderWidth = myBorderWidth
     , layoutHook  = myLayout
+    --, manageHook  = manageDocks
     } `additionalKeysP` myAdditionalKeys
 
 myAdditionalKeys = 
@@ -83,7 +94,6 @@ myAdditionalKeys =
     , ("<XF86AudioRaiseVolume>", spawn "amixer sset Master 3%+")
     , ("<XF86AudioLowerVolume>", spawn "amixer sset Master 3%-")
     , ("<XF86AudioMute>",        spawn "amixer sset Master toggle")
-
     , ("<XF86LaunchB>", spawn "notify-send \"$(pstate-frequency -G -r)\"")
     , ("M1-<XF86LaunchB>", spawn "notify-send \"$(pstate-frequency -G -r)\"")
     , ("M-<XF86LaunchB>", spawn "notify-send \"$(sudo pstate-frequency -S -p 1)\"")

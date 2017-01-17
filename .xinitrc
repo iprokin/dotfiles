@@ -26,3 +26,5 @@ dhcpcd-gtk &
 # WM start
 
 exec i3
+# exec xmonad
+# exec dwm

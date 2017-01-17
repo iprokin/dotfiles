@@ -1,6 +1,7 @@
 #bindkey -v # vi mode
 
-export PATH="$HOME/scripts:/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/scripts:/usr/local/bin:$PATH"
+#export PATH="$PATH:$HOME/scripts/VIMonad"
 export PATH=$PATH:$HOME/.cabal/bin
 export PYTHONPATH="$HOME/Sync/MyPy"
 export VISUAL=vim
@@ -32,6 +33,7 @@ antigen theme amuse
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle tarruda/zsh-autosuggestions
 antigen bundle git
+antigen bundle soimort/translate-shell
 #antigen bundle Vifon/deer
 antigen apply
 unalias gm
@@ -89,7 +91,7 @@ bindkey '^r' ranger-cd
 # aliases and functions
 
 alias v="vim"
-alias tmux="TERM=tmux-256color tmux $@"
+alias tmux="TERM=screen-256color-bce tmux $@"
 alias hat="highlight --out-format=ansi $@"
 
 function svim() { st -e vim $@ & }
