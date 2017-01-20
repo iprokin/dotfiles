@@ -96,7 +96,7 @@ myAdditionalKeys =
     , ("<XF86AudioMute>",        spawn "amixer sset Master toggle")
     , ("<XF86LaunchB>", spawn "notify-send \"$(pstate-frequency -G -r)\"")
     , ("M1-<XF86LaunchB>", spawn "notify-send \"$(pstate-frequency -G -r)\"")
-    , ("M-<XF86LaunchB>", spawn "notify-send \"$(sudo pstate-frequency -S -p 1)\"")
-    , ("M-M1-<XF86LaunchB>", spawn "notify-send \"$(sudo pstate-frequency -S -p 2)\"")
-    , ("M-M1-C-<XF86LaunchB>", spawn "notify-send \"$(sudo pstate-frequency -S -p 3)\"")
+    , ("M-<XF86LaunchB>", spawn "notify-send \"$(sudo pstate-frequency -S -p powersave)\"")
+    , ("M-M1-<XF86LaunchB>", spawn "notify-send \"$(sudo pstate-frequency -S -p balanced)\"")
+    , ("M-M1-C-<XF86LaunchB>", spawn "notify-send \"$(sudo pstate-frequency -S -p performance)\"")
     ]

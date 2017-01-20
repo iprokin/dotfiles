@@ -13,7 +13,7 @@ echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode &
 
 # autostart
 
-pstate-frequency -S -p 2 &
+pstate-frequency -S -p auto &
 nice -n 19 ionice -c3 sh -c '/usr/share/gopreload/bin/StartPreload.sh' &
 xcalib ~/.local/share/icc/color.icc &
 dunst &

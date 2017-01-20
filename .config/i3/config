@@ -238,9 +238,9 @@ bindsym "XF86AudioPrev" exec --no-startup-id cmus-remote -r
 
 bindsym "XF86LaunchB" exec --no-startup-id notify-send "$(pstate-frequency -G -r)"
 bindsym Mod1+"XF86LaunchB" exec --no-startup-id notify-send "$(pstate-frequency -G -c)"
-bindsym $mod+"XF86LaunchB" exec --no-startup-id sudo pstate-frequency -S -p 1
-bindsym $mod+Mod1+"XF86LaunchB" exec --no-startup-id sudo pstate-frequency -S -p 2
-bindsym $mod+Mod1+Control+"XF86LaunchB" exec --no-startup-id sudo pstate-frequency -S -p 3
+bindsym $mod+"XF86LaunchB" exec --no-startup-id sudo pstate-frequency -S -p powersave
+bindsym $mod+Mod1+"XF86LaunchB" exec --no-startup-id sudo pstate-frequency -S -p balanced
+bindsym $mod+Mod1+Control+"XF86LaunchB" exec --no-startup-id sudo pstate-frequency -S -p performance
 
 bindsym $mod+Control+z exec zim --plugin quicknote --input clipboard 
 bindsym $mod+backslash exec st -e ranger
