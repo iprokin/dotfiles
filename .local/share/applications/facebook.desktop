@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Facebook
+Exec=firejail --private chromium --app=https://www.facebook.com
+Terminal=false
+Icon=chromium
+Type=Application
+Categories=GTK;Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
