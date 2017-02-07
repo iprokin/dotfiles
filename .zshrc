@@ -91,6 +91,7 @@ bindkey '^r' ranger-cd
 # aliases and functions
 
 alias v="vim"
+alias make="colormake"
 alias tmux="TERM=screen-256color-bce tmux $@"
 alias hat="highlight --out-format=ansi $@"
 

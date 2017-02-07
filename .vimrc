@@ -19,8 +19,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
@@ -74,7 +74,9 @@ function Pyth()
     set autoindent
     set fileformat=unix
     normal m`:%s/\s\+$//e ``
-    ab ipdb import ipdb; ipdb.set_trace()
+    "ab ipdb import ipdb; ipdb.set_trace()
+    ab ipdb from IPython.core.debugger import Tracer; Tracer()()
+    ab pdb import pdb; pdb.set_trace()
     ab inp import numpy as np
     ab ipd import pandas as pd
     ab fxl for x in range(len(x)):

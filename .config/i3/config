@@ -41,7 +41,7 @@ bindsym $mod+Control+Return exec lilyterm
 bindsym $mod+Shift+Return exec sh -c 'CONF=~/.config/termite && FILE=$(ls $CONF | dmenu) && termite -c $CONF/$FILE'
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $mod+Control+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+p exec --no-startup-id i3-dmenu-desktop
