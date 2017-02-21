@@ -1,5 +1,6 @@
 #bindkey -v # vi mode
-
+#
+export GOPATH=~/go
 export PATH="$HOME/.local/bin:$HOME/scripts:/usr/local/bin:$PATH"
 #export PATH="$PATH:$HOME/scripts/VIMonad"
 export PATH=$PATH:$HOME/.cabal/bin
