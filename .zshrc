@@ -1,9 +1,10 @@
 #bindkey -v # vi mode
 #
-export GOPATH=~/go
+export GOPATH="$HOME/go"
 export PATH="$HOME/.local/bin:$HOME/scripts:/usr/local/bin:$PATH"
 #export PATH="$PATH:$HOME/scripts/VIMonad"
-export PATH=$PATH:$HOME/.cabal/bin
+export PATH="$PATH:$HOME/.cabal/bin"
+export PATH="$PATH:$GOPATH/bin"
 export PYTHONPATH="$HOME/Sync/MyPy"
 export VISUAL=vim
 export EDITOR=vim

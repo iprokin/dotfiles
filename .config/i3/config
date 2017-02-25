@@ -219,7 +219,7 @@ bindsym Shift+"XF86MonBrightnessUp" exec --no-startup-id ~/scripts/xbright.py sc
 bindsym "XF86KbdBrightnessDown" exec --no-startup-id ~/scripts/xbright.py kbd -10
 bindsym "XF86KbdBrightnessUp" exec --no-startup-id ~/scripts/xbright.py kbd +10
 # taking screenshot:
-bindsym $mod+"XF86Eject" exec ~/scripts/scrshot.sh
+bindsym $mod+"F12" exec ~/scripts/scrshot.sh
 bindsym "XF86AudioRaiseVolume" exec --no-startup-id amixer set Master 5%+
 bindsym "XF86AudioLowerVolume" exec --no-startup-id amixer set Master 5%-
 bindsym "XF86AudioMute" exec --no-startup-id amixer set Master toggle
